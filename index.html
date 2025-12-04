@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music in Bosham</title>
+    <meta name="description" content="Music in Bosham - A concert series celebrating classical music">
+    <link rel="icon" type="image/png" href="images/Logo.png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo-container">
+                <img src="images/Logo.png" alt="Music in Bosham Logo" class="logo" id="logo">
+                <h1 class="site-title">Music in Bosham</h1>
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#about" class="nav-link active" data-section="about">About</a></li>
+                    <li><a href="#upcoming" class="nav-link" data-section="upcoming">Upcoming Concerts</a></li>
+                    <li><a href="#past" class="nav-link" data-section="past">Past Concerts</a></li>
+                    <li><a href="#findus" class="nav-link" data-section="findus">Find Us</a></li>
+                    <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- About Section -->
+        <section id="about" class="content-section active">
+            <h2>About Music in Bosham</h2>
+            <div class="section-content">
+                <div class="framed-image-container float-left">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Bosham._Holy_Trinity_Church._-_panoramio.jpg" alt="Holy Trinity Church, Bosham" class="framed-image">
+                    <p class="image-caption">Holy Trinity Church, Bosham</p>
+                </div>
+                
+                <p>Welcome to <i>Music in Bosham</i>, a local concert series dedicated to bringing the joys of professional music to the community.</p>
+                
+                <p>Founded in 2016 by Artistic Director Ben Lathbury, <i>Music in Bosham</i> showcases a wealth of talented artists at the beautiful Holy Trinity Church in Bosham. Our past performers range from students on the cusp of graduation, through to artists who have graced stages around the world. We pride ourselves on showcasing local talent as well, with many of our guests living just a stone's throw away from the area.</p>
+                
+                <p><b>We meet on the first Sunday of the month at 6pm</b>, typically with a short break in winter and summer. Concerts usually run for around 50-60 minutes, which we've found is the perfect length for a Sunday evening.</p>
+                                
+                <p>All <i>Music in Bosham</i> events have free entry, though we operate a retiring collection and audiences are encouraged to show their appreciation in this way. This has worked well for the series, allowing us to support both the artists and the upkeep of the church.</p>
+
+                
+                <div class="framed-image-container float-right">
+                    <img src="images/BenLathbury.png" alt="Ben Lathbury, Artistic Director" class="framed-image">
+                    <p class="image-caption">Ben Lathbury, Artistic Director</p>
+                </div>
+
+                <p>If you'd like to be kept updated with information about forthcoming concerts, or if you would like the opportunity to sing at one of our many 'Come & Sing' days, please do get in touch using the contact form to be added to our mailing list. We send around ten emails a year as reminders of what's on, so you won't be inundated with spam.</p>
+                
+                <p>Additionally, if you're a musician looking for your next performance opportunity, we'd love to hear from you.</p>
+
+                <p>We look forward to welcoming you to Holy Trinity Church for <i>Music in Bosham</i> very soon.</p>
+            </div>
+        </section>
+
+        <!-- Upcoming Concerts Section -->
+        <section id="upcoming" class="content-section">
+            <h2>Upcoming Concerts</h2>
+            <div class="section-content">
+                <div id="upcoming-concerts-list" class="concerts-list">
+                    <!-- Concerts will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Past Concerts Section -->
+        <section id="past" class="content-section">
+            <h2>Past Concerts</h2>
+            <div class="section-content">
+                <div id="past-concerts-list" class="concerts-list">
+                    <!-- Past concerts will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Find Us Section -->
+        <section id="findus" class="content-section">
+            <h2>Find Us</h2>
+            <div class="section-content">
+                <p>Holy Trinity Church is located in the heart of Bosham village, one of West Sussex's most picturesque locations. The church is easily accessible by both road and rail, and is well worth a visit in its own right. Find out more about Holy Trinity Church <a href="https://boshamchurch.org.uk" target="_blank" rel="noopener noreferrer">here</a>.</p>
+                
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2515.896!2d-0.8594227!3d50.8288165!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487451c399e8ef8b%3A0x327c4c834927777b!2sHoly%20Trinity%20Church!5e0!3m2!1sen!2suk!4v1733337600000!5m2!1sen!2suk" 
+                        width="600" 
+                        height="450" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+                
+                <h3>Parking Information</h3>
+                <p>There is no street parking available outside the church. The pay & display car park on Shore Road is a five-minute walk away and is free after 6pm. Please note that it is possible to park for free behind The Anchor Bleu pub, however, this road floods at high tide, so check the tide times before committing.</p>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="content-section">
+            <h2>Contact Us</h2>
+            <div class="section-content">
+                <p>We'd love to hear from you! Whether you have questions about upcoming concerts, would like to join our mailing list, or have any other inquiries, please get in touch.</p>
+                <form id="contact-form" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" rows="6" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                    <div id="form-status" class="form-status"></div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Music in Bosham. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
