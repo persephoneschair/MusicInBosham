@@ -321,7 +321,7 @@ function escapeHtml(text) {
 }
 
 function sanitizeHtml(text) {
-    // Allow safe HTML tags: <i>, <em>, <b>, <strong>, <br>
+    // Allow safe HTML tags: <i>, <em>, <b>, <strong>, <u>, <br>
     // First escape everything
     const div = document.createElement('div');
     div.textContent = text;
@@ -336,6 +336,8 @@ function sanitizeHtml(text) {
                      .replace(/&lt;\/b&gt;/g, '</b>')
                      .replace(/&lt;strong&gt;/g, '<strong>')
                      .replace(/&lt;\/strong&gt;/g, '</strong>')
+                     .replace(/&lt;u&gt;/g, '<u>')
+                     .replace(/&lt;\/u&gt;/g, '</u>')
                      .replace(/&lt;br&gt;/g, '<br>')
                      .replace(/&lt;br\/&gt;/g, '<br/>');
     
@@ -357,55 +359,44 @@ function initializeContactForm() {
     form.addEventListener('submit', async function(e) {
         e.preventDefault();
         
-        const formData = {
-            name: document.getElementById('name').value,
-            email: document.getElementById('email').value,
-            subject: document.getElementById('subject').value,
-            message: document.getElementById('message').value
-        };
-        
         // Show loading state
         statusDiv.textContent = 'Sending message...';
         statusDiv.className = 'form-status';
         statusDiv.style.display = 'block';
         
-        // Here you would normally send to a backend service
-        // For now, we'll simulate it and provide instructions
+        // Get form data
+        const formData = new FormData(form);
+        
         try {
-            // Simulate form submission
-            await simulateFormSubmission(formData);
+            // Submit to Formspree
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
             
-            // Show success message
-            statusDiv.textContent = 'Thank you for your message! We\'ll get back to you soon.';
-            statusDiv.className = 'form-status success';
-            
-            // Reset form
-            form.reset();
-            
-            // Hide success message after 5 seconds
-            setTimeout(() => {
-                statusDiv.style.display = 'none';
-            }, 5000);
+            if (response.ok) {
+                // Show success message
+                statusDiv.textContent = 'Thank you for your message! We\'ll get back to you soon.';
+                statusDiv.className = 'form-status success';
+                
+                // Reset form
+                form.reset();
+                
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    statusDiv.style.display = 'none';
+                }, 5000);
+            } else {
+                throw new Error('Form submission failed');
+            }
             
         } catch (error) {
             statusDiv.textContent = 'Sorry, there was an error sending your message. Please try again or email us directly.';
             statusDiv.className = 'form-status error';
         }
-    });
-}
-
-function simulateFormSubmission(formData) {
-    return new Promise((resolve) => {
-        // Log to console for debugging
-        console.log('Form submission:', formData);
-        
-        // In production, you would integrate with:
-        // - Formspree (https://formspree.io/)
-        // - EmailJS (https://www.emailjs.com/)
-        // - Netlify Forms
-        // - Or your own backend API
-        
-        setTimeout(resolve, 1000);
     });
 }
 
