@@ -27,8 +27,8 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function initializeHeaderScroll() {
-    let lastScrollTop = 0;
     const header = document.querySelector('header');
+    const SCROLL_THRESHOLD = 100;
     let ticking = false;
 
     window.addEventListener('scroll', function() {
@@ -38,11 +38,11 @@ function initializeHeaderScroll() {
                 
                 // Only hide on mobile (width <= 768px)
                 if (window.innerWidth <= 768) {
-                    if (scrollTop > lastScrollTop && scrollTop > 100) {
-                        // Scrolling down
+                    if (scrollTop > SCROLL_THRESHOLD) {
+                        // Past threshold - hide header
                         header.classList.add('hidden');
                     } else {
-                        // Scrolling up
+                        // Above threshold - show header
                         header.classList.remove('hidden');
                     }
                 } else {
@@ -50,7 +50,6 @@ function initializeHeaderScroll() {
                     header.classList.remove('hidden');
                 }
                 
-                lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
                 ticking = false;
             });
             ticking = true;
