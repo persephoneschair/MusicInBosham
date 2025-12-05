@@ -41,7 +41,8 @@ body {
 /* Apply custom fonts */
 .site-title,
 h1, h2, h3 {
-    font-family: 'Bernard MT Condensed', 'Arial Narrow', 'Impact', sans-serif;
+    font-family: 'Bernard MT Condensed', 'Oswald', 'Arial Narrow', 'Impact', sans-serif;
+    font-weight: 300;
 }
 
 /* ===== Container ===== */
