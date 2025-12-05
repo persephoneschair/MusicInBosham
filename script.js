@@ -23,7 +23,40 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeNavigation();
     loadConcertData();
     initializeContactForm();
+    initializeHeaderScroll();
 });
+
+function initializeHeaderScroll() {
+    let lastScrollTop = 0;
+    const header = document.querySelector('header');
+    let ticking = false;
+
+    window.addEventListener('scroll', function() {
+        if (!ticking) {
+            window.requestAnimationFrame(function() {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                
+                // Only hide on mobile (width <= 768px)
+                if (window.innerWidth <= 768) {
+                    if (scrollTop > lastScrollTop && scrollTop > 100) {
+                        // Scrolling down
+                        header.classList.add('hidden');
+                    } else {
+                        // Scrolling up
+                        header.classList.remove('hidden');
+                    }
+                } else {
+                    // Remove hidden class on desktop
+                    header.classList.remove('hidden');
+                }
+                
+                lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+                ticking = false;
+            });
+            ticking = true;
+        }
+    });
+}
 
 function initializeNavigation() {
     const navLinks = document.querySelectorAll('.nav-link');

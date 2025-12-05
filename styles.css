@@ -534,12 +534,29 @@ footer {
 
 /* ===== Responsive Design ===== */
 @media (max-width: 768px) {
-    .container {
-        padding: 0 1rem;
+    header {
+        padding: 0.75rem 0;
+        transition: transform 0.3s ease;
+    }
+
+    header.hidden {
+        transform: translateY(-100%);
+    }
+
+    .logo {
+        max-height: 60px;
     }
 
     .site-title {
-        font-size: 1.5rem;
+        font-size: 2.5rem;
+    }
+
+    .logo-container {
+        margin-bottom: 0.5rem;
+    }
+
+    .container {
+        padding: 0 1rem;
     }
 
     .nav-menu {
